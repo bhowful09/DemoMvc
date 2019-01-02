@@ -7,6 +7,7 @@ namespace DemoMvc
         public MappingProfile()
         {
             CreateMap<DemoApiSdk.Customer, Models.Customer>().ReverseMap();
+            CreateMap<DemoApiSdk.CustomerCreate, Models.CustomerCreate>().ReverseMap();
         }
     }
 }

@@ -1,8 +1,6 @@
 ﻿using Newtonsoft.Json;
 using RestSharp;
-using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace DemoApiSdk
 {
@@ -29,10 +27,25 @@ namespace DemoApiSdk
 
         public Customer UpdateCustomer(Customer customer)
         {
-            var request = new RestRequest($"api/customers/{customer.Id}", Method.POST);
+            var request = new RestRequest($"api/customers/", Method.PUT);
             request.AddJsonBody(JsonConvert.SerializeObject(customer));
             var response = _restClient.Execute<Customer>(request).Data;
             return response;
+        }
+
+        public Customer CreateCustomer(CustomerCreate customer)
+        {
+            var request = new RestRequest($"api/customers/", Method.POST);
+            request.AddJsonBody(JsonConvert.SerializeObject(customer));
+            var response = _restClient.Execute<Customer>(request);
+            return response.Data;
+        }
+
+        public void DeleteCustomer(int id)
+        {
+            var request = new RestRequest($"api/customers/{id}", Method.DELETE);
+            _restClient.Execute(request);
+            return;
         }
     }
 }

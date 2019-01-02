@@ -2,11 +2,8 @@
 
 namespace DemoMvc.Models
 {
-    public class Customer
+    public class CustomerCreate
     {
-        [Required]
-        public int Id { get; set; }
-
         [Required]
         [StringLength(40, MinimumLength = 1)]
         public string FirstName { get; set; }
@@ -24,7 +21,7 @@ namespace DemoMvc.Models
         public string Country { get; set; }
 
         [Required]
-        [StringLength(40, MinimumLength = 1)]
+        [StringLength(20, MinimumLength = 9)]
         public string Phone { get; set; }
     }
 }

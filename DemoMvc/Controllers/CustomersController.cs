@@ -16,7 +16,7 @@ namespace DemoMvc.Controllers
             _mapper = mapper;
         }
 
-        public IActionResult ViewList()
+        public IActionResult Index()
         {
             var customers = _demoApiClient.GetAllCustomers();
             var viewCustomers = _mapper.Map<List<Models.Customer>>(customers);
@@ -34,7 +34,33 @@ namespace DemoMvc.Controllers
         public IActionResult Edit(Models.Customer customer)
         {
             var sdkCustomer = _mapper.Map<Customer>(customer);
-            return View(_demoApiClient.UpdateCustomer(sdkCustomer));
+            return View(_mapper.Map<Models.Customer>(_demoApiClient.UpdateCustomer(sdkCustomer)));
+        }
+
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        public IActionResult Details(int id)
+        {
+            var customer = _demoApiClient.GetCustomer(id);
+            return View(_mapper.Map<Models.Customer>(customer));
+        }
+
+        [HttpPost]
+        public IActionResult Create(Models.CustomerCreate customer)
+        {
+            var sdkCustomer = _mapper.Map<CustomerCreate>(customer);
+            var createdCustomer = _demoApiClient.CreateCustomer(sdkCustomer);
+            return RedirectToAction(nameof(Details), new { id = createdCustomer.Id });
+        }
+
+        public IActionResult Delete(int id)
+        {
+            _demoApiClient.DeleteCustomer(id);
+            ViewData["Id"] = id;
+            return View();
         }
     }
 }

@@ -1,8 +1,7 @@
 ﻿namespace DemoApiSdk
 {
-    public class Customer
+    public class CustomerCreate
     {
-        public int Id { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string City { get; set; }

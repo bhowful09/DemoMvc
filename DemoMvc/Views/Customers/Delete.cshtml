@@ -1,0 +1,13 @@
+﻿@{
+    ViewData["Title"] = "Delete";
+}
+
+<div class="container">
+    <p>&nbsp;</p>
+
+    <div class="row alert alert-success">Customer Record @Html.Raw(ViewData["Id"])  Successfully Deleted.</div>
+
+    <div class="row">
+        @Html.ActionLink("Return to Customers List", "Index", "Customers", null, new { @class = "btn btn-primary" })
+    </div>
+</div>
