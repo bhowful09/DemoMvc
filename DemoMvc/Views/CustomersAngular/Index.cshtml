@@ -1,0 +1,20 @@
+﻿@{
+    ViewBag.Title = "Play";
+}
+
+<div id="bodyContainer" ng-app="QuizApp">
+    <section id="content">
+        <div class="container">
+            <div class="row">
+                <div ng-controller="QuizCtrl" ng-init="nextQuestion()">
+                    <p>{{title}}</p> {{firstName}} {{lastName}} {{city}} {{country}} {{phone}}
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+@section scripts {
+    <script type="text/javascript" src="~/app/angular.min.js"></script>
+    <script type="text/javascript" src="~/app/customer-controller.js"></script>
+}
