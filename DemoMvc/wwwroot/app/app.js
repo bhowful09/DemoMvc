@@ -11,7 +11,7 @@ RouteApp.config(function ($routeProvider, $locationProvider) {
     $routeProvider.when("/Individual/:input", {
         templateUrl: function (params) { return "/CustomersAngular/Individual?input=" + params.input }
     });
-    $routeProvider.otherwise({ redirectTo: "/First" });
+    $routeProvider.otherwise({ redirectTo: "/List" });
 }
 );
 
