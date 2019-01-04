@@ -6,16 +6,16 @@ RouteApp.config(function ($routeProvider, $locationProvider) {
         templateUrl: "/CustomersAngular/List"
     });
     $routeProvider.when("/Individual", {
-        templateUrl: "/CustomersAngular/Individual"
+        templateUrl: "/CustomersAngular/Individual/"
     });
-    $routeProvider.when("/Third/:input", {
+    $routeProvider.when("/Individual/:input", {
         templateUrl: function (params) { return "/CustomersAngular/Individual?input=" + params.input }
     });
     $routeProvider.otherwise({ redirectTo: "/First" });
 }
 );
 
-RouteApp.controller('CustomersCtrl', function ($scope, $http, CustomerService) {
+RouteApp.controller('CustomersCtrl', function ($scope, $routeParams, CustomerService) {
     $scope.title = "loading customers...";
     $scope.working = false;
 
@@ -28,11 +28,11 @@ RouteApp.controller('CustomersCtrl', function ($scope, $http, CustomerService) {
         });
     };
 
-    $scope.getOneCustomer = function (id) {
+    $scope.getOneCustomer = function () {
         $scope.working = true;
         $scope.title = "loading customer...";
 
-        CustomerService.getCustomer(id, function (response) {
+        CustomerService.getCustomer($routeParams.input, function (response) {
             $scope.customer = response.data;
         });
     };

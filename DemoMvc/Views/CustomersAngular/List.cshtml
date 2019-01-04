@@ -2,18 +2,6 @@
     <section id="content">
         <div class="container">
             <div class="row">
-                <ul>
-                    <li>
-                        <a href="#/home">Home</a>
-                    </li>
-                    <li>
-                        <a href="#/details">Details</a>
-                    </li>
-                    <li>
-                        <a href="#/contact">Contact</a>
-                    </li>
-                </ul>
-                <br />
                 <div ng-controller="CustomersCtrl" ng-init="getAllCustomers()">
                     <p>{{deleteme}}</p>
                     <table class="table">
@@ -35,7 +23,7 @@
                             <td>{{ x.city }}</td>
                             <td>{{ x.country }}</td>
                             <td>{{ x.phone }}</td>
-                            <td></td>
+                            <td><a class="btn btn-primary" href="#/Individual/{{ x.id }}">View</a></td>
                         </tr>
                     </table>
                 </div>
