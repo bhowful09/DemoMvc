@@ -2,42 +2,18 @@
     ViewBag.Title = "Play";
 }
 
-<div id="bodyContainer" ng-app="CustomersApp">
-    <section id="content">
-        <div class="container">
-            <div class="row">
-                <div ng-controller="CustomersCtrl" ng-init="getAllCustomers()">
-                    <p>{{deleteme}}</p>
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th>Id</th>
-                                <th>First Name</th>
-                                <th>Last Name</th>
-                                <th>City</th>
-                                <th>Country</th>
-                                <th>Phone</th>
-                                <th></th>
-                            </tr>
-                        </thead>
-                        <tr ng-repeat="x in customers">
-                            <td>{{ x.id }}</td>
-                            <td>{{ x.firstName }}</td>
-                            <td>{{ x.lastName }}</td>
-                            <td>{{ x.city }}</td>
-                            <td>{{ x.country }}</td>
-                            <td>{{ x.phone }}</td>
-                            <td></td>
-                        </tr>
-                    </table>
-                </div>
-            </div>
-        </div>
-    </section>
+<div ng-app="testApp">
+    <h3><a href="#/List">List</a></h3>
+    <h3><a href="#/Individual">Individual</a></h3>
+    <h3><a href="#/Third/2">Third</a></h3>
+    <div ng-view></div>
 </div>
 
 @section scripts {
     <script type="text/javascript" src="~/app/angular.min.js"></script>
+    <script type="text/javascript" src="~/app/angular-route.min.js"></script>
+
+    <script type="text/javascript" src="~/app/app.js"></script>
     <script type="text/javascript" src="~/app/customer-controller.js"></script>
     <script type="text/javascript" src="~/app/customer-service.js"></script>
 }

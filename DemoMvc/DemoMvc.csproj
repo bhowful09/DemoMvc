@@ -15,4 +15,13 @@
   <ItemGroup>
     <ProjectReference Include="..\DemoApiSdk\DemoApiSdk.csproj" />
   </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="Views\CustomersAngular\Individual.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Views\CustomersAngular\List.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+  </ItemGroup>
 </Project>

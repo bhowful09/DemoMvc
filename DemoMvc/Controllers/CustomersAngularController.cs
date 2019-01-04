@@ -12,5 +12,15 @@ namespace DemoMvc.Controllers
         {
             return View();
         }
+
+        public IActionResult List()
+        {
+            return View();
+        }
+
+        public IActionResult Individual()
+        {
+            return View();
+        }
     }
 }
